@@ -4,8 +4,13 @@
 <meta charset=utf-8 />
 <title>NUMA network</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<link rel="stylesheet" type="text/css" href="main.css">
 <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
 <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+<link rel="stylesheet" type="text/css" class="ui" href="//oss.maxcdn.com/semantic-ui/2.1.8/components/grid.min.css">
+<link rel="stylesheet" type="text/css" class="ui" href="//oss.maxcdn.com/semantic-ui/2.1.8/components/segment.min.css">
+
+ 
 <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -67,8 +72,34 @@
 </nav>
 <div id='map'></div>
 
+
+
+<div id="footer" class="ui grid">
+   
+
+    <div class="sixteen wide column">
+        <div class="ui grid">
+          <div class="sixteen wide nested column">
+            <img src="NUMA_logo.png" />
+            <p>We believe entrepreneurs can change the world and our mission with the acceleration program at NUMA is to facilitate their growth at the most critical moment of their existence.
+            </p>
+          </div>
+        </div>
+      </div>
+    
+
+    <div class="one wide column"></div>
+</div>
+
+
+
+
+
+
+
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoibnVtYXBhcmlzIiwiYSI6ImNpbWhzZGcxcjAwMHR2cmx5OG0wZmo1dm8ifQ.CnnU3FL4KEFjzJWGmQycAw';
+
 // In the propeties object for each marker define key's
 // like `rentals`, `fuel`, `tackleshop` that are set to true for false
 // depending on whether or they exist at a location.
@@ -76,7 +107,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoibnVtYXBhcmlzIiwiYSI6ImNpbWhzZGcxcjAwMHR2cmx5O
 var geojson = mapdata; //taken from mapdata.js
 
 
-var map = L.mapbox.map('map', 'mapbox.streets')
+var map = L.mapbox.map('map', 'mapbox.light')
     .setView([30.34, 48.86], 3)
 
 var markers = L.mapbox.featureLayer()
@@ -117,7 +148,7 @@ var markerJSON = marker.toGeoJSON();
 console.log("marker json: " + JSON.stringify(markerJSON));
 
 
-marker.addTo(map).bindPopup("I am a green leaf.");
+//marker.addTo(map).bindPopup("I am a green leaf.");
 
 
 $('.menu-ui a').on('click', function() {
@@ -133,7 +164,6 @@ $('.menu-ui a').on('click', function() {
     return false;
 });
 </script>
-
 
 </body>
 </html>

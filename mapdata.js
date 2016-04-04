@@ -204,13 +204,17 @@ function getGeoJson(object) {
 
     var colors = {
         roseFushia: "#E50064",
-        blueKlein:"#302683",
+        roseCandy: "#E94190",
+        bleuKlein:"#302683",
+        turquoise: "#1CABBB",
+        jaune: "#FFF489",
+        ardoise: "#00587D",
     }
 
-    var color = colors.blueKlein;
+    var color = colors.ardoise;
 
     if(isNUMA){
-        color = colors.roseFushia;
+        color = colors.roseCandy;
     }
 
     
@@ -240,11 +244,6 @@ function getGeoJson(object) {
 
 
 var mapdata = rawdata.map(getGeoJson);
-
-
-
-
-
 
 
 
