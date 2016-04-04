@@ -73,7 +73,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoibnVtYXBhcmlzIiwiYSI6ImNpbWhzZGcxcjAwMHR2cmx5O
 // like `rentals`, `fuel`, `tackleshop` that are set to true for false
 // depending on whether or they exist at a location.
 
-var geojson = mapdata; //taken from rawdata.js
+var geojson = mapdata; //taken from mapdata.js
 
 
 var map = L.mapbox.map('map', 'mapbox.streets')
@@ -82,6 +82,43 @@ var map = L.mapbox.map('map', 'mapbox.streets')
 var markers = L.mapbox.featureLayer()
     .setGeoJSON(geojson)
     .addTo(map);
+
+
+var LeafIcon = L.Icon.extend({
+  options: {
+      shadowUrl: 'leaf-shadow.png',
+      iconSize:     [38, 95],
+      shadowSize:   [50, 64],
+      iconAnchor:   [22, 94],
+      shadowAnchor: [4, 62],
+      popupAnchor:  [-3, -76]
+  },
+
+});
+
+
+var CustomMarker = L.Marker.extend({
+    properties: {
+        "title": "NUMA Paris",
+        "NUMA": true,
+        "GFE": false,
+        "ATALANTA": false,
+        "GAN": false,
+    },
+});
+
+var greenIcon = new LeafIcon({iconUrl: 'leaf-red.png'})
+
+
+var marker = L.marker([51.5, -0.09], {icon: greenIcon});
+
+
+var markerJSON = marker.toGeoJSON();
+console.log("marker json: " + JSON.stringify(markerJSON));
+
+
+marker.addTo(map).bindPopup("I am a green leaf.");
+
 
 $('.menu-ui a').on('click', function() {
     // For each filter link, get the 'data-filter' attribute value.
