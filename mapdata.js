@@ -224,7 +224,7 @@ function getGeoJson(object) {
         "type": "Point"
       },
       "properties": {
-        "title": "NUMA Paris",
+        "title": object.name,
         "NUMA": isNUMA,
         "GFE": isGFE,
         "ATALANTA": isAtalanta,
