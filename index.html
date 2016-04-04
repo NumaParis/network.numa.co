@@ -55,6 +55,8 @@
 
 <!-- jQuery is required for this example. -->
 <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
+<script src="mapdata.js"></script>
+
 
 <nav class='menu-ui'>
   <a href='#' class='active' data-filter='all'>Show all</a>
@@ -70,108 +72,9 @@ L.mapbox.accessToken = 'pk.eyJ1IjoibnVtYXBhcmlzIiwiYSI6ImNpbWhzZGcxcjAwMHR2cmx5O
 // In the propeties object for each marker define key's
 // like `rentals`, `fuel`, `tackleshop` that are set to true for false
 // depending on whether or they exist at a location.
-var geojson = [
-    {
-      "type": "Feature",
-      "geometry": {
-        "coordinates": [
-          2.34954,
-          48.86763
-        ],
-        "type": "Point"
-      },
-      "properties": {
-        "title": "NUMA Paris",
-        "NUMA": true,
-        "GFE": false,
-        "ATALANTA": false,
-        "GAN": false,
-        "marker-color": "#1087bf",
-        "marker-size": "large",
-        "marker-symbol": "building"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "coordinates": [
-          37.645531,
-          55.726055
-        ],
-        "type": "Point"
-      },
-      "properties": {
-        "title": "NUMA Moscow",
-        "NUMA": true,
-        "GFE": false,
-        "ATALANTA": false,
-        "GAN": false,
-        "marker-color": "#1087bf",
-        "marker-size": "large",
-        "marker-symbol": "building"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "coordinates": [
-          77.599271,
-          12.976594
-        ],
-        "type": "Point"
-      },
-      "properties": {
-        "title": "NUMA Bengaluru",
-        "NUMA": true,
-        "GFE": false,
-        "ATALANTA": false,
-        "GAN": false,
-        "marker-color": "#1087bf",
-        "marker-size": "large",
-        "marker-symbol": "building"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "coordinates": [
-          -7.635305,
-          33.548591
-        ],
-        "type": "Point"
-      },
-      "properties": {
-        "title": "NUMA Casablanca",
-        "NUMA": true,
-        "GFE": false,
-        "ATALANTA": false,
-        "GAN": false,
-        "marker-color": "#1087bf",
-        "marker-size": "large",
-        "marker-symbol": "building"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "coordinates": [
-          2.185167,
-          41.381992
-        ],
-        "type": "Point"
-      },
-      "properties": {
-        "title": "NUMA Barcelona",
-        "NUMA": true,
-        "GFE": false,
-        "ATALANTA": false,
-        "GAN": false,
-        "marker-color": "#1087bf",
-        "marker-size": "large",
-        "marker-symbol": "building"
-      }
-    },
-];
+
+var geojson = mapdata; //taken from rawdata.js
+
 
 var map = L.mapbox.map('map', 'mapbox.streets')
     .setView([30.34, 48.86], 3)
