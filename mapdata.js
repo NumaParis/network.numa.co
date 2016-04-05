@@ -211,6 +211,7 @@ function getGeoJson(object) {
         ardoise: "#00587D",
         celadon: "#8AC5C6",
         raisin: "#731A66",
+        sable: "#FEE9C9",
     }
 
     var color = colors.turquoise;
