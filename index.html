@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" class="ui" href="//oss.maxcdn.com/semantic-ui/2.1.8/components/grid.min.css">
 <link rel="stylesheet" type="text/css" class="ui" href="//oss.maxcdn.com/semantic-ui/2.1.8/components/segment.min.css">
 
- 
+
 <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -24,22 +24,14 @@
 <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
 <script src="mapdata.js"></script>
 
-
-<nav class='menu-ui'>
-  <a href='#' class='active' data-filter='all'>SHOW ALL</a>
-  <a href='#' data-filter='NUMA'>NUMA</a>
-  <a href='#' data-filter='ATALANTA'>ATALANTA</a>
-  <a href='#' data-filter='GFE'>GFE</a>
-  <a href='#' data-filter='GAN'>GAN</a>
-</nav>
 <div id='map'></div>
 
 
 
 <div id="footer" class="ui grid">
-   
 
-    <div class="sixteen wide column">
+
+    <div style="width:60%">
         <div class="ui grid">
           <div class="sixteen wide nested column">
             <img src="NUMA_logo.png" />
@@ -48,9 +40,15 @@
           </div>
         </div>
       </div>
-    
-
-    <div class="one wide column"></div>
+      <div style="width:40%">
+      <nav class='menu-ui'>
+        <a href='#' class='active' data-filter='all'>SHOW ALL</a>
+        <a href='#' data-filter='NUMA'>NUMA</a>
+        <a href='#' data-filter='ATALANTA'>ATALANTA</a>
+        <a href='#' data-filter='GFE'>GFE</a>
+        <a href='#' data-filter='GAN'>GAN</a>
+      </nav>
+    </div>
 </div>
 
 
