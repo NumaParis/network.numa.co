@@ -214,7 +214,7 @@ function getGeoJson(object) {
     var color = colors.ardoise;
 
     if(isNUMA){
-        color = colors.roseCandy;
+        color = colors.roseFushia;
     }
 
     

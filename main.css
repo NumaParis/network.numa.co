@@ -31,14 +31,55 @@ div#footer {
   left:50px;
   width: 330px;
   height: 220px;
-  background-color: #00587D;
+  background-color: #E50064;
 }
 
 p {
   font-family: 'LatoWebHeavy', Sans-Serif;
-  color: #E94190;
+  color: #FFF489;
 }
 
 h1 {
 	font-family: 'LatoWebHeavy', Sans-Serif;
 }
+
+
+.menu-ui {
+  
+  position:absolute;
+  top:10px;right:10px;
+  z-index:1;
+  border-radius:0px;
+  width:120px;
+  border:1px solid rgba(0,0,0,0.4);
+}
+
+.menu-ui a {
+  font-family: 'LatoWebHeavy', sans-serif;
+  font-size:13px;
+  background:#E50064;
+  color:#FFF489;
+  display:block;
+  margin:0;padding:0;
+  padding:10px;
+  text-decoration:none;
+  border-bottom:1px solid rgba(0,0,0,0.25);
+  text-align:center;
+}
+
+
+.menu-ui a:hover {
+  background:#FFF489;
+  color: #E50064;
+}
+
+.menu-ui a.active {
+  background:#FFF489;
+  color: #E50064;
+},
+
+.menu-ui a.active:hover {
+  background:#3887BE;
+  color:#FFF;
+}
+
