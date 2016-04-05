@@ -31,12 +31,12 @@ div#footer {
   left:50px;
   width: 330px;
   height: 220px;
-  background-color: #E50064;
+  background-color: #731A66;
 }
 
 p {
   font-family: 'LatoWebHeavy', Sans-Serif;
-  color: #FFF489;
+  color: #FEE9C9;
 }
 
 h1 {
@@ -57,8 +57,8 @@ h1 {
 .menu-ui a {
   font-family: 'LatoWebHeavy', sans-serif;
   font-size:13px;
-  background:#E50064;
-  color:#FFF489;
+  background:#FEE9C9;
+  color:##731A66;
   display:block;
   margin:0;padding:0;
   padding:10px;
@@ -69,17 +69,17 @@ h1 {
 
 
 .menu-ui a:hover {
-  background:#FFF489;
-  color: #E50064;
+  background:#731A66;
+  color: #FEE9C9;
 }
 
 .menu-ui a.active {
-  background:#FFF489;
-  color: #E50064;
+  background:#731A66;
+  color: #FEE9C9;
 },
 
-.menu-ui a.active:hover {
+/*.menu-ui a.active:hover {
   background:#3887BE;
   color:#FFF;
 }
-
+*/

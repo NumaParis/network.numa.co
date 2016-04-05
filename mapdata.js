@@ -209,12 +209,14 @@ function getGeoJson(object) {
         turquoise: "#1CABBB",
         jaune: "#FFF489",
         ardoise: "#00587D",
+        celadon: "#8AC5C6",
+        raisin: "#731A66",
     }
 
-    var color = colors.ardoise;
+    var color = colors.turquoise;
 
     if(isNUMA){
-        color = colors.roseFushia;
+        color = colors.bleuKlein;
     }
 
     
