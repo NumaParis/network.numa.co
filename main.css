@@ -35,14 +35,27 @@ div#footer {
   padding: 20px;
 }
 
-p {
-  font-family: 'LatoWeb', Sans-Serif;
+p#legend {
   color: #FEE9C9;
   padding-right: 20px;
+  font-size: 1em;
 }
+
+body { 
+  font-family: 'LatoWeb', Sans-Serif;
+  margin:0; 
+  padding:0; 
+}
+
+#map { position:absolute; top:0; bottom:0; width:100%; }
 
 h1 {
 	font-family: 'LatoWebHeavy', Sans-Serif;
+}
+
+a {
+  font-family: 'LatoWeb', Sans-Serif;
+  font-size: 1.2em;
 }
 
 
@@ -58,7 +71,7 @@ h1 {
 
 .menu-ui a {
   font-family: 'LatoWebHeavy', sans-serif;
-  font-size:13px;
+  font-size:0.8em;
   background:#1CABBB;
   color:#FEE9C9;
   display:block;

@@ -36,7 +36,7 @@ var rawdata = [
     "numa": "FALSE",
     "atalanta": "TRUE",
     "gfe": "FALSE",
-    "gan": "TRUE"
+    "gan": "FALSE"
   },
   {
     "name": "Vocus UpStart",
@@ -1503,9 +1503,9 @@ var rawdata = [
     "lon": 2.34954,
     "lat": 48.86763,
     "numa": "TRUE",
-    "atalanta": "TRUE",
-    "gfe": "TRUE",
-    "gan": "TRUE"
+    "atalanta": "FALSE",
+    "gfe": "FALSE",
+    "gan": "FALSE"
   },
   {
     "name": "NUMA Moscow",
@@ -1516,9 +1516,9 @@ var rawdata = [
     "lon": 37.645531,
     "lat": 55.726055,
     "numa": "TRUE",
-    "atalanta": "TRUE",
-    "gfe": "TRUE",
-    "gan": "TRUE"
+    "atalanta": "FALSE",
+    "gfe": "FALSE",
+    "gan": "FALSE"
   },
   {
     "name": "NUMA Bengaluru",
@@ -1529,9 +1529,9 @@ var rawdata = [
     "lon": 77.599271,
     "lat": 12.976594,
     "numa": "TRUE",
-    "atalanta": "TRUE",
-    "gfe": "TRUE",
-    "gan": "TRUE"
+    "atalanta": "FALSE",
+    "gfe": "FALSE",
+    "gan": "FALSE"
   },
   {
     "name": "NUMA Casablanca",
@@ -1542,9 +1542,9 @@ var rawdata = [
     "lon": -7.635305,
     "lat": 33.548591,
     "numa": "TRUE",
-    "atalanta": "TRUE",
-    "gfe": "TRUE",
-    "gan": "TRUE"
+    "atalanta": "FALSE",
+    "gfe": "FALSE",
+    "gan": "FALSE"
   },
   {
     "name": "NUMA Barcelona",
@@ -1555,9 +1555,9 @@ var rawdata = [
     "lon": 2.185167,
     "lat": 41.381992,
     "numa": "TRUE",
-    "atalanta": "TRUE",
-    "gfe": "TRUE",
-    "gan": "TRUE"
+    "atalanta": "FALSE",
+    "gfe": "FALSE",
+    "gan": "FALSE"
   },
   {
     "name": "NUMA Mexico",
@@ -1568,22 +1568,21 @@ var rawdata = [
     "lon": -99.168771,
     "lat": 19.40881,
     "numa": "TRUE",
-    "atalanta": "TRUE",
-    "gfe": "TRUE",
-    "gan": "TRUE"
+    "atalanta": "FALSE",
+    "gfe": "FALSE",
+    "gan": "FALSE"
   }
 ];
 
 
 
 
-function getGeoJson(object) {
+function getGeoJson({name, website, city, country, lon, lat, numa, gfe, atalanta, gan}) {
 
-    var isNUMA = object.numa === 'TRUE';
-    var isGFE = object.gfe === 'TRUE';
-    var isAtalanta = object.atalanta === 'TRUE';
-    var isGAN = object.gan === 'TRUE';
-    var content = getHTML(object);
+    var isNUMA = numa === 'TRUE';
+    var isGFE = gfe === 'TRUE';
+    var isAtalanta = atalanta === 'TRUE';
+    var isGAN = gan === 'TRUE';
 
     var colors = {
         roseFushia: "#E50064",
@@ -1595,29 +1594,36 @@ function getGeoJson(object) {
         celadon: "#8AC5C6",
         raisin: "#731A66",
         sable: "#FEE9C9",
+        mandarine: "#F7AA59",
     }
 
-    var color = colors.turquoise;
-
+    var color;
     if(isNUMA){
+        color = colors.roseFushia;
+    } else if (isGFE){
+        color = colors.ardoise;
+    } else if (isAtalanta){
+        color = colors.raisin;
+    } else if (isGAN) {
         color = colors.bleuKlein;
     }
+
 
     
     var geojson = {
       "type": "Feature",
       "geometry": {
         "coordinates": [
-          object.lon,
-          object.lat
+          lon,
+          lat
         ],
         "type": "Point"
       },
       "properties": {
-        "title": object.name,
-        "website": object.website,
-        description: content,
-
+        "name": name,
+        "website": website,
+        "city": city,
+        "country": country,
         "NUMA": isNUMA,
         "GFE": isGFE,
         "ATALANTA": isAtalanta,
@@ -1631,14 +1637,6 @@ function getGeoJson(object) {
     return geojson; 
 };
 
-function getHTML({ website }) {
-
-    console.log("website " + website);
-
-    return  '<button class="ui button">' +
-                '<a target="_blank" href="' + website + '">Website</a>' +
-            '</button>'
-};
 
 
 var mapdata = rawdata.map(getGeoJson);

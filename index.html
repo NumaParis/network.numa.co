@@ -11,17 +11,6 @@
 
 <link rel="stylesheet" type="text/css" class="ui" href="//oss.maxcdn.com/semantic-ui/2.1.8/components/button.min.css">
 <link rel="stylesheet" type="text/css" class="ui" href="//oss.maxcdn.com/semantic-ui/2.1.8/components/icon.min.css">
-
-
-
-
-
-
-
-<style>
-  body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100%; }
-</style>
 </head>
 <body>
 
@@ -36,13 +25,11 @@
 
 
 <div id="footer" class="ui grid">
-
-
     <div style="width:60%">
         <div class="ui grid">
           <div class="sixteen wide nested column">
             <img src="NUMA_logo.png" />
-            <p>We believe entrepreneurs can change the world and our mission with the acceleration program at NUMA is to facilitate their growth at the most critical moment of their existence.
+            <p id="legend">We believe entrepreneurs can change the world and our mission with the acceleration program at NUMA is to facilitate their growth at the most critical moment of their existence.
             </p>
           </div>
         </div>
@@ -57,14 +44,6 @@
       </nav>
     </div>
 </div>
-
-<div class="ui animated button" tabindex="0">
-  <div class="visible content"><a target="_blank" href="http://numa.co">Website</a></div>
-  <div class="hidden content">
-    <i class="right arrow icon"></i>
-  </div>
-</div>
-
 
 
 
@@ -83,44 +62,54 @@ var geojson = mapdata; //taken from mapdata.js
 var map = L.mapbox.map('map', 'numaparis.88fc86ce')
     .setView([30.34, 48.86], 3)
 
-var markers = L.mapbox.featureLayer()
-    .setGeoJSON(geojson)
-    .addTo(map);
+var markers = L.mapbox.featureLayer();
 
 
-var LeafIcon = L.Icon.extend({
-  options: {
-      shadowUrl: 'leaf-shadow.png',
-      iconSize:     [38, 95],
-      shadowSize:   [50, 64],
-      iconAnchor:   [22, 94],
-      shadowAnchor: [4, 62],
-      popupAnchor:  [-3, -76]
-  },
 
+
+markers.on('layeradd', function(e) {
+  var marker = e.layer;
+  var feature = marker.feature;
+
+  console.log("properties: " + JSON.stringify(feature));
+
+  // Create custom popup content
+  var popupContent =  getHTML(feature.properties);
+
+  // http://leafletjs.com/reference.html#popup
+  marker.bindPopup(popupContent,{
+      closeButton: false,
+      minWidth: 200
+  });
 });
 
-
-var CustomMarker = L.Marker.extend({
-    properties: {
-        "title": "NUMA Paris",
-        "NUMA": true,
-        "GFE": false,
-        "ATALANTA": false,
-        "GAN": false,
-    },
-});
-
-var greenIcon = new LeafIcon({iconUrl: 'leaf-red.png'})
+markers.setGeoJSON(geojson).addTo(map);
 
 
-var marker = L.marker([51.5, -0.09], {icon: greenIcon});
+// var LeafIcon = L.Icon.extend({
+//   options: {
+//       shadowUrl: 'leaf-shadow.png',
+//       iconSize:     [38, 95],
+//       shadowSize:   [50, 64],
+//       iconAnchor:   [22, 94],
+//       shadowAnchor: [4, 62],
+//       popupAnchor:  [-3, -76]
+//   },
 
-
-var markerJSON = marker.toGeoJSON();
-console.log("marker json: " + JSON.stringify(markerJSON));
-
-
+// });
+// var CustomMarker = L.Marker.extend({
+//     properties: {
+//         "title": "NUMA Paris",
+//         "NUMA": true,
+//         "GFE": false,
+//         "ATALANTA": false,
+//         "GAN": false,
+//     },
+// });
+// var greenIcon = new LeafIcon({iconUrl: 'leaf-red.png'})
+// var marker = L.marker([51.5, -0.09], {icon: greenIcon});
+// var markerJSON = marker.toGeoJSON();
+// console.log("marker json: " + JSON.stringify(markerJSON));
 //marker.addTo(map).bindPopup("I am a green leaf.");
 
 
@@ -136,6 +125,20 @@ $('.menu-ui a').on('click', function() {
     });
     return false;
 });
+
+function getHTML({ name, website, city, country, id }) {
+
+    console.log("website " + website);
+
+    return  '<div id="' + id + '" class="popup">' +
+      '<h1>' + name + '</h1>' +
+      '<p>' + city + ", " + country + '</p>' +
+      '<a target="_blank" href="' + website + '">' + website +'</a>'
+    '</div>'
+
+};
+
+
 </script>
 
 </body>
