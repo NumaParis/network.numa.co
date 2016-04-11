@@ -91,16 +91,24 @@ markers.on('mouseover', function(e) {
   e.layer.openPopup();
 });
 
-markers.on('click', function(e) {
-    window.open(e.layer.feature.properties.website);
+markers.on('mouseout', function(e) {
+  setTimeout(function () {
+    e.layer.closePopup();
+  }, 1500 );
 });
+
+
+
+// markers.on('click', function(e) {
+//     window.open(e.layer.feature.properties.website);
+// });
 
 markers.on('layeradd', function(e) {
   var marker = e.layer;
   var feature = marker.feature;
   var properties = marker.toGeoJSON().properties;
 
-  console.log(JSON.stringify(marker.toGeoJSON()));
+  //console.log(JSON.stringify(marker.toGeoJSON()));
 
   var iconUrl;
   if (properties.NUMA === true) {
