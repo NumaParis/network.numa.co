@@ -98,10 +98,9 @@ markers.on('mouseout', function(e) {
 });
 
 
-
-// markers.on('click', function(e) {
-//     window.open(e.layer.feature.properties.website);
-// });
+markers.on('click', function(e) {
+    window.open(e.layer.feature.properties.website);
+});
 
 markers.on('layeradd', function(e) {
   var marker = e.layer;
