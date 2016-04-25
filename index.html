@@ -45,11 +45,10 @@
       </div>
       <div style="width:40%">
       <nav class='menu-ui'>
-        <a href='#' class='active' data-filter='all'>SHOW ALL</a>
-        <a href='#' data-filter='NUMA'>NUMA</a>
-        <a href='#' data-filter='ATALANTA'>ATALANTA</a>
-        <a href='#' data-filter='GFE'>GFE</a>
-        <a href='#' data-filter='GAN'>GAN</a>
+        <a href='#' class='active' data-network='NUMA'>NUMA</a>
+        <a href='#' class='active' data-network='ATALANTA'>ATALANTA</a>
+        <a href='#' class='active' data-network='GFE'>GFE</a>
+        <a href='#' class='active' data-network='GAN'>GAN</a>
       </nav>
     </div>
 </div>
@@ -65,8 +64,8 @@ L.mapbox.accessToken = 'pk.eyJ1IjoibnVtYXBhcmlzIiwiYSI6ImNpbWhzZGcxcjAwMHR2cmx5O
 // like `rentals`, `fuel`, `tackleshop` that are set to true for false
 // depending on whether or they exist at a location.
 
-var geojson = mapdata; //taken from mapdata.js
 
+var geojson = mapdata; //taken from mapdata.js
 
 var map = L.mapbox.map('map', 'numaparis.88fc86ce')
     .setView([30.34, 48.86], 3)
@@ -139,17 +138,27 @@ markers.on('layeradd', function(e) {
 markers.setGeoJSON(geojson).addTo(map);
 
 
+var filter = {
+  "NUMA": true, 
+  "ATALANTA": true, 
+  "GFE": true, 
+  "GAN": true
+};
+
 $('.menu-ui a').on('click', function() {
-    // For each filter link, get the 'data-filter' attribute value.
-    var filter = $(this).data('filter');
-    $(this).addClass('active').siblings().removeClass('active');
+
+    if($(this).hasClass('active')) {
+      $(this).removeClass('active');
+      filter[$(this).data('network')] = false;
+    } else {
+      $(this).addClass('active');
+      filter[$(this).data('network')] = true;
+    }
+    
     markers.setFilter(function(f) {
-        // If the data-filter attribute is set to "all", return
-        // all (true). Otherwise, filter on markers that have
-        // a value set to true based on the filter name.
-        return (filter === 'all') ? true : f.properties[filter] === true;
+      //TODO: make this more elegant with a loop or something
+      return (f.properties['NUMA'] === true && filter['NUMA']) || (f.properties['ATALANTA'] === true && filter['ATALANTA']) || (f.properties['GFE'] === true && filter['GFE']) || (f.properties['GAN'] === true && filter['GAN']);
     });
-    return false;
 });
 
 function getHTML({ name, website, city, country, id }) {

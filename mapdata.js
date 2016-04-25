@@ -1584,30 +1584,6 @@ function getGeoJson({name, website, city, country, lon, lat, numa, gfe, atalanta
     var isGFE = gfe === 'TRUE';
     var isGAN = gan === 'TRUE';
 
-    // var colors = {
-    //     roseFushia: "#E50064",
-    //     roseCandy: "#E94190",
-    //     bleuKlein:"#302683",
-    //     turquoise: "#1CABBB",
-    //     jaune: "#FFF489",
-    //     ardoise: "#00587D",
-    //     celadon: "#8AC5C6",
-    //     raisin: "#731A66",
-    //     sable: "#FEE9C9",
-    //     mandarine: "#F7AA59",
-    // }
-
-    // var color;
-    // if(isNUMA){
-    //     color = colors.roseFushia;
-    // } else if (isGFE){
-    //     color = colors.ardoise;
-    // } else if (isAtalanta){
-    //     color = colors.raisin;
-    // } else if (isGAN) {
-    //     color = colors.bleuKlein;
-    // }
-
 
     
     var geojson = {
