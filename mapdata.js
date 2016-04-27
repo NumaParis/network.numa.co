@@ -39,6 +39,19 @@ var rawdata = [
     "gan": "FALSE"
   },
   {
+    "name": "Balkan Unlimited",
+    "description": 0,
+    "website": "http://balkanunlimited.org/",
+    "city": "Skopje",
+    "country": "Macedoine",
+    "lon": 21.41394,
+    "lat": 42.002136,
+    "numa": "FALSE",
+    "atalanta": "TRUE",
+    "gfe": "FALSE",
+    "gan": "FALSE"
+  },
+  {
     "name": "Vocus UpStart",
     "description": 0,
     "website": "http://www.vocusupstart.com.au/",

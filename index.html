@@ -10,6 +10,11 @@
 <link rel="stylesheet" type="text/css" class="ui" href="//oss.maxcdn.com/semantic-ui/2.1.8/components/grid.min.css">
 <link rel="stylesheet" type="text/css" class="ui" href="//oss.maxcdn.com/semantic-ui/2.1.8/components/button.min.css">
 <link rel="stylesheet" type="text/css" class="ui" href="//oss.maxcdn.com/semantic-ui/2.1.8/components/icon.min.css">
+<link rel="stylesheet" type="text/css" class="ui" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css">
+<link rel="stylesheet" type="text/css" class="ui" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/popup.min.css">
+<link rel="stylesheet" type="text/css" class="ui" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/segment.min.css">
+<link rel="stylesheet" type="text/css" class="ui" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/popup.min.css">
+<link rel="stylesheet" type="text/css" class="ui" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.css">
 
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
@@ -23,41 +28,75 @@
 <!-- jQuery is required for this example. -->
 <!-- <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script> -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js'></script>
-
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/popup.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.js'></script>
 
 
 <script src="mapdata.js"></script>
 
 <div id='map'></div>
 
-
-
 <div id="footer" class="ui grid">
-    <div style="width:60%">
-        <div class="ui grid">
-          <div class="sixteen wide nested column">
-            <img src="NUMA_logo.png" />
-            <p id="legend">We believe entrepreneurs can change the world and our mission with the acceleration program at NUMA is to facilitate their growth at the most critical moment of their existence.
-            </p>
-          </div>
+        
+      <div style="width:50%">
+        <div class="sixteen wide nested column">
+          <img src="NUMA_logo.png"/>
+          <p id="legend">We believe entrepreneurs can change the world and our mission with the acceleration program at NUMA is to facilitate their growth at the most critical moment of their existence.
+          </p>
         </div>
       </div>
-      <div style="width:40%">
-      <nav class='menu-ui'>
-        <a href='#' class='active' data-network='NUMA'>NUMA</a>
-        <a href='#' class='active' data-network='ATALANTA'>ATALANTA</a>
-        <a href='#' class='active' data-network='GFE'>GFE</a>
-        <a href='#' class='active' data-network='GAN'>GAN</a>
-      </nav>
-    </div>
+      <div style="width:50%">
+        <nav class='menu-ui'>
+          <a href='#' class='active' data-network='NUMA'>
+            NUMA WORLD
+            <i 
+              data-html='<p class="tooltip">Today <a class="tooltip" href="https://numa.co/" target="_blank">NUMA</a> is present in 6 countries representing a market of 1.6 billion people. Harness our network to reach fast growing ecosystems.</p>'
+              class="large info circle icon"
+            >
+            </i>
+          </a>
+          <a href='#' class='active' data-network='ATALANTA'>
+            EUROPEAN PARTNERS
+            <i 
+              data-html='<p class="tooltip"><a class="tooltip" href="https://paris.numa.co/Actualites/Top-Accelerator-launch-ATALANTA" target="_blank">ATALANTA Project</a> is a cross-border platform that drives innovation and support entrepreneurship and the creation of successful tech startups on a European level.</p>'
+              class="large info circle icon"
+            >
+            </i>
+          </a>
+          <a href='#' class='active' data-network='GFE'>
+            GOOGLE FOR ENTREPRENEURS
+            <i 
+              data-html='<p class="tooltip"><a class="tooltip" href="https://www.googleforentrepreneurs.com/" target="_blank">Google for Entrepreneurs</a> provides financial support and the best of Google&#39;s resources to dozens of coworking spaces and community programs across 125 countries.</p>' 
+              class="large info circle icon"
+            >
+            </i>
+          </a>
+          <a href='#' class='active' data-network='GAN'>
+            GLOBAL ACCELERATOR NETWORK
+            <i 
+              data-html='<p class="tooltip"><a class="tooltip" href="http://gan.co/the-network" target="_blank">GAN</a> is a network of accelerators around the world. Its members provide startups with the resources necessary to create and grow businesses, in more then 100 cities.</p>' 
+              class="large info circle icon"
+            >
+            </i>
+          </a>
+        </nav>
+      </div>
 </div>
 
 
-
-
-
 <script>
+
+$('.icon.info').popup({
+  on: 'hover',
+  position : 'right center',
+  delay: {
+    show: 50,
+    hide: 1500
+  }
+});
+
+
+
 L.mapbox.accessToken = 'pk.eyJ1IjoibnVtYXBhcmlzIiwiYSI6ImNpbWhzZGcxcjAwMHR2cmx5OG0wZmo1dm8ifQ.CnnU3FL4KEFjzJWGmQycAw';
 
 // In the propeties object for each marker define key's
@@ -172,7 +211,6 @@ function getHTML({ name, website, city, country, id }) {
     '</div>'
 
 };
-
 
 
 </script>

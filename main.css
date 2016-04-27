@@ -29,8 +29,8 @@ div#footer {
   position: fixed;
   bottom: 50px;
   left:50px;
-  width: 400px;
-  height: 200px;
+  width: 590px;
+  height: 170px;
   background-color: #1CABBB;
   padding: 20px;
 }
@@ -50,7 +50,7 @@ body {
 #map { position:absolute; top:0; bottom:0; width:100%; }
 
 h1 {
-	font-family: 'LatoWebHeavy', Sans-Serif;
+  font-family: 'LatoWebHeavy', Sans-Serif;
 }
 
 a {
@@ -65,8 +65,7 @@ a {
   top:30px;right:30px;
   z-index:1;
   border-radius:0px;
-  width:120px;
-  /*border:1px solid #FEE9C9;*/
+
 }
 
 .menu-ui a {
@@ -78,15 +77,10 @@ a {
   margin:0;padding:0;
   padding:10px;
   text-decoration:none;
-  border:1px solid #FEE9C9;
+  border:1px solid #1CABBB;
   text-align:center;
 }
-
-
-/*.menu-ui a:hover {
-  background:#FEE9C9;
-  color: #1CABBB;
-}*/
+/**/
 
 .menu-ui a.active {
   background:#FEE9C9;
@@ -94,7 +88,21 @@ a {
   border:1px solid #1CABBB;
 },
 
-/*.menu-ui a.active:hover {
-  background:#3887BE;
-  color:#FFF;
-}*/
+.menu-ui a:hover {
+  /*background:#3887BE;
+  color:#FFF;*/
+}
+
+.tooltip {
+  font-size: 0.9em;
+}
+
+p.tooltip {
+  margin: 0px;
+}
+
+a.tooltip {
+  font-size: 1.0em;
+  color: #3087c0;
+  text-decoration: none;
+}
