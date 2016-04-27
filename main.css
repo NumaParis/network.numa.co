@@ -106,3 +106,7 @@ a.tooltip {
   color: #3087c0;
   text-decoration: none;
 }
+
+.icon.info {
+  float: right;
+}
