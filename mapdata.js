@@ -1,5 +1,31 @@
 var rawdata = [
   {
+    "name": "NUMA Berlin",
+    "description": 0,
+    "website": "http://numa.co",
+    "city": "Berlin",
+    "country": "Germany",
+    "lat": 52.520007,
+    "lon": 13.404954,
+    "numa": "TRUE",
+    "atalanta": "FALSE",
+    "gfe": "FALSE",
+    "gan": "FALSE"
+  },
+   {
+    "name": "NUMA New York",
+    "description": 0,
+    "website": "http://numa.co",
+    "city": "NYC",
+    "country": "USA",
+    "lon": -73.993205,
+    "lat": 40.744182,
+    "numa": "TRUE",
+    "atalanta": "FALSE",
+    "gfe": "FALSE",
+    "gan": "FALSE"
+  },
+  {
     "name": "Beta-i",
     "description": 0,
     "website": "http://beta-i.pt/",
